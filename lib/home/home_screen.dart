@@ -8,6 +8,7 @@ class Home_screen extends StatefulWidget {
 }
 
 class _Home_screenState extends State<Home_screen> {
+
   TextEditingController txtname = TextEditingController();
   String name = "";
   List l1 = [];
@@ -42,7 +43,6 @@ class _Home_screenState extends State<Home_screen> {
                     setState(() {
                       name = txtname.text;
                       l1.add(name);
-                      print(l1);
                     });
                   },
                   child: Icon(Icons.send_and_archive),
@@ -50,7 +50,8 @@ class _Home_screenState extends State<Home_screen> {
               ),
             ),
             Column(
-              children: l1.asMap().entries.map((e) => Hello(l1[e.key])).toList(),
+              children:
+                  l1.asMap().entries.map((e) => list(l1[e.key])).toList(),
             ),
           ],
         ),
@@ -58,7 +59,7 @@ class _Home_screenState extends State<Home_screen> {
     );
   }
 
-  Widget Hello(String name) {
+  Widget list(String name) {
     return Column(
       children: [
         SizedBox(
